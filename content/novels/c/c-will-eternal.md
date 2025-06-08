@@ -1,6 +1,6 @@
 +++
 author = "Arashe"
-title = "A Will Eternal"
+title = "C Will Eternal"
 description = ""
 date = "2025-06-06T19:31:20+09:00"
 image = "../c-will-eternal.jpg"

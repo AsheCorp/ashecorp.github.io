@@ -4,7 +4,23 @@
     {{ $filtered := ($pages | intersect $notHidden) }}
     {{ $pag := .Paginate ($filtered) }}
 
-    <section class="article-list">
+    {{ $randomArticles := shuffle $filtered | first 5 }}
+    <section class="random-articles-swiper">
+        <div class="swiper article-list--tile">
+            <div class="swiper-wrapper">
+                {{ range $randomArticles }}
+                    <div class="swiper-slide">
+                        {{ partial "article-list/default" . }}
+                    </div>
+                {{ end }}
+            </div>
+            <!-- Swiper navigation -->
+            <div class="swiper-prev">&#8592;</div>
+            <div class="swiper-next">&#8594;</div>
+        </div>
+    </section>
+
+    <section class="article-list article-list--grid">
         {{ range $index, $element := $pag.Pages }}
             {{ partial "article-list/default" . }}
         {{ end }}

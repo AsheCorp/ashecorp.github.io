@@ -99,3 +99,86 @@ main.main {
         padding: 0 20px;
     }
 }
+
+.random-articles-swiper {
+    margin-bottom: 2rem;
+
+    h2 {
+        margin-bottom: 1rem;
+    }
+
+    .swiper {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+
+        &.swiper--fixed-height {
+            height: 350px; // or any value you want as the fixed height
+            .swiper-slide,
+            .swiper-slide > article {
+                height: 100%;
+            }
+        }
+    }
+
+    .swiper-wrapper {
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .swiper-slide {
+        width: 100% !important;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0;
+        background: none;
+        box-shadow: none;
+        border-radius: 0;
+
+        > article {
+            width: 100%;
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; // Make content fill the full height
+        }
+    }
+
+    .swiper-prev,
+    .swiper-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        background: #eee;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1.5rem;
+        user-select: none;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        transition: background 0.2s;
+        &:hover {
+            background: #ddd;
+        }
+    }
+    .swiper-prev { left: 0; }
+    .swiper-next { right: 0; }
+}
+
+.article-list--grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: var(--section-separation);
+
+    @include respond(md) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    article {
+        width: 100%;
+    }
+}

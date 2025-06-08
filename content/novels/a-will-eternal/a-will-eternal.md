@@ -3,7 +3,7 @@ author = "Arashe"
 title = "A Will Eternal"
 description = ""
 date = "2025-06-08T19:31:20+09:00"
-image = "/assets/novels/a-will-eternal/a-will-eternal.jpg"
+image = "../a-will-eternal.jpg"
 categories = [
     "Novel",
 ]

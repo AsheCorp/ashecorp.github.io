@@ -170,8 +170,8 @@ main.main {
 }
 
 .article-list--grid {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: var(--section-separation);
 
     @include respond(md) {

@@ -58,7 +58,7 @@ params:
         - novels
     featuredImageField: image
     rssFullContent: true
-    favicon: img/favicon.ico # e.g.: favicon placed in `static/favicon.ico` of your site folder, then set this field to `/favicon.ico` (`/` is necessary)
+    favicon: /img/favicon.ico # e.g.: favicon placed in `static/favicon.ico` of your site folder, then set this field to `/favicon.ico` (`/` is necessary)
 
     footer:
         since: 2025
@@ -74,7 +74,7 @@ params:
         avatar:
             enabled: true
             local: true
-            src: img/logo.png
+            src: /img/logo.png
 
     article:
         math: false
@@ -216,12 +216,12 @@ params:
 menu:
     main: []
 
-    #social:
-        #- identifier: github
-        #  name: GitHub
-        #  url: https://github.com/CaiJimmy/hugo-theme-stack
-        #  params:
-        #      icon: brand-github
+    social:
+        - identifier: github
+          name: GitHub
+          url: https://github.com/AsheCorp/ashecorp.github.io
+          params:
+              icon: brand-github
 
         #- identifier: twitter
         #  name: Twitter

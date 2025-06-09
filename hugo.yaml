@@ -70,7 +70,7 @@ params:
 
     sidebar:
         emoji: 
-        subtitle: EPUB Novel Collections
+        subtitle:
         avatar:
             enabled: true
             local: true

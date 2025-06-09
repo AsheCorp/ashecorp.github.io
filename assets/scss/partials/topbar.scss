@@ -4,7 +4,8 @@
     box-shadow: var(--shadow-l1);
     position: sticky;
     top: 0;
-    z-index: 100;
+    left: 0;
+    z-index: 1000;
     padding: 0 1.5rem;
     transition: transform 0.3s ease;
 
@@ -14,8 +15,8 @@
 
     .topbar-inner {
         display: flex;
-        flex-direction: row; // Ensure row layout
-        align-items: center;
+        flex-direction: row;
+        align-items: center; // This centers all children vertically
         gap: 1.5rem;
         min-height: 60px;
         width: 100%;
@@ -23,23 +24,38 @@
 
     .site-meta {
         display: flex;
-        flex-direction: row; // Make meta row
+        flex-direction: row;
         align-items: center;
         gap: 1rem;
 
         .site-avatar {
-            width: 70px;
-            height: 70px;
+            width: 40px;
+            height: 40px;
             margin: 0;
             .site-logo {
                 width: 100%;
                 height: 100%;
                 border-radius: 50%;
+                box-shadow: var(--shadow-l1);
             }
+        }
+        .emoji {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            border-radius: 100%;
+            bottom: 0;
+            right: 0;
+            text-align: center;
+            font-size: 15px;
+            background-color: var(--card-background);
+            box-shadow: var(--shadow-l2);
         }
         .site-name {
             font-weight: bold;
             font-size: 1.3rem;
+            color: var(--accent-color);
         }
         .site-description {
             font-size: 1rem;
@@ -75,6 +91,55 @@
             list-style: none;
             margin: 0;
             padding: 0;
+        }
+    }
+
+    #i18n-switch {
+        color: var(--body-text-color);
+        display: inline-flex;
+        align-items: center;
+        gap: var(--menu-icon-separation);
+
+        select {
+            border: 0;
+            background-color: transparent;
+            color: var(--body-text-color);
+
+            option {
+                color: var(--card-text-color-main);
+                background-color: var(--card-background);
+            }
+        }
+    }
+
+    #dark-mode-toggle {
+        color: var(--body-text-color);
+        display: flex;
+        align-items: center; // Ensures icon/text are centered vertically
+        justify-content: center;
+        height: 40px; // Optional: match avatar/menu height if needed
+        background: none;
+        border: none;
+        padding: 0 0.75rem;
+        margin: 0;
+        cursor: pointer;
+
+        .icon-tabler-toggle-right {
+            display: none;
+        }
+    }
+}
+
+[data-scheme="dark"] {
+    #dark-mode-toggle {
+        color: var(--accent-color);
+        font-weight: 700;
+
+        .icon-tabler-toggle-left {
+            display: none;
+        }
+        .icon-tabler-toggle-right {
+            display: unset;
         }
     }
 }

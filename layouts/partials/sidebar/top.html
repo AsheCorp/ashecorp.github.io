@@ -33,31 +33,30 @@
                 {{ end }}
                 <span class="site-name"><a href="{{ .Site.BaseURL | relLangURL }}">{{ .Site.Title }}</a></span>
                 <span class="site-description">{{ .Site.Params.sidebar.subtitle }}</span>
+                <nav class="topbar-social">
+                    {{- with .Site.Menus.social -}}
+                        <ol class="menu-social">
+                            {{ range . }}
+                                <li>
+                                    <a 
+                                        href='{{ .URL }}'
+                                        {{ if eq (default true .Params.newTab) true }}target="_blank"{{ end }}
+                                        {{ with .Name }}title="{{ . }}"{{ end }}
+                                        rel="me"
+                                    >
+                                        {{ $icon := default "link" .Params.Icon }}
+                                        {{ with $icon }}
+                                            {{ partial "helper/icon" . }}
+                                        {{ end }}
+                                    </a>
+                                </li>
+                            {{ end }}
+                        </ol>
+                    {{- end -}}
+                </nav>
             </div>
         </div>
-        <!-- Right column: Menus, Social, Toggles -->
-        <div class="topbar-right">
-            <nav class="topbar-social">
-                {{- with .Site.Menus.social -}}
-                    <ol class="menu-social">
-                        {{ range . }}
-                            <li>
-                                <a 
-                                    href='{{ .URL }}'
-                                    {{ if eq (default true .Params.newTab) true }}target="_blank"{{ end }}
-                                    {{ with .Name }}title="{{ . }}"{{ end }}
-                                    rel="me"
-                                >
-                                    {{ $icon := default "link" .Params.Icon }}
-                                    {{ with $icon }}
-                                        {{ partial "helper/icon" . }}
-                                    {{ end }}
-                                </a>
-                            </li>
-                        {{ end }}
-                    </ol>
-                {{- end -}}
-            </nav>
+        <!-- Right column: Search, Social, Language Switcher -->       
             <nav class="topbar-menu">
                 <ol class="menu" id="main-menu">
                     {{ $currentPage := . }}

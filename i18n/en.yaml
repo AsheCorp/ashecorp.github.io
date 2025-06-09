@@ -1,13 +1,13 @@
 toggleMenu:
-    other: 切換選單
+    other: Toggle Menu
 
 darkMode:
-    other: 深色模式
+    other: Dark Mode
 
 list:
     page:
-        one: "第 {{ .Count }} 頁"
-        other: "第 {{ .Count }} 頁"
+        one: "{{ .Count }} page"
+        other: "{{ .Count }} pages"
 
     section:
         other: Section
@@ -18,27 +18,27 @@ list:
 
 article:
     back:
-        other: 返回
+        other: Back
 
     tableOfContents:
-        other: 目錄
+        other: Table of contents
 
     relatedContent:
-        other: 相關內容
+        other: Related content
 
     lastUpdatedOn:
-        other: 上次改過於
+        other: Last updated on
 
     readingTime:
-        one: "需要 {{ .Count }} 分鐘閱讀"
-        other: "需要 {{ .Count }} 分鐘閱讀"
+        one: "{{ .Count }} minute read"
+        other: "{{ .Count }} minute read"
 
 notFound:
     title:
         other: Not Found
 
     subtitle:
-        other: 頁面不存在
+        other: This page does not exist
 
 widget:
     archives:
@@ -46,7 +46,7 @@ widget:
             other: Archives
 
         more:
-            other: 更多
+            other: More
 
     tagCloud:
         title:
@@ -57,10 +57,10 @@ widget:
 
 search:
     title:
-        other: 搜尋
+        other: Search
 
     placeholder:
-        other: Type 關鍵字...
+        other: Type something...
 
     resultTitle:
         other: "#PAGES_COUNT pages (#TIME_SECONDS seconds)"
@@ -70,4 +70,4 @@ footer:
         other: Built with {{ .Generator }}
 
     designedBy:
-        other: 主題 {{ .Theme }} 由 {{ .DesignedBy }} 設計
+        other: Theme {{ .Theme }} designed by {{ .DesignedBy }}

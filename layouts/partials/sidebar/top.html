@@ -5,25 +5,22 @@
       <div class="site-meta">
         {{ with .Site.Params.sidebar.avatar }}
           {{ if (default true .enabled) }}
-          <figure class="site-avatar">
-            <a href="{{ .Site.BaseURL | relLangURL }}">
-            {{ if not .local }}
-              <img src="{{ .src }}" width="40" height="40" class="site-logo" loading="lazy" alt="Avatar">
-            {{ else }}
-              {{ $avatar := resources.Get (.src) }}
-              {{ if $avatar }}
-                {{ $avatarResized := $avatar.Resize "40x" }}
-                <img src="{{ $avatarResized.RelPermalink }}" width="{{ $avatarResized.Width }}"
-                  height="{{ $avatarResized.Height }}" class="site-logo" loading="lazy" alt="Avatar">
+            <a href="{{ .Site.BaseURL | relLangURL }}" class="site-logo">
+              {{ if not .local }}
+                <img src="{{ .src }}" class="site-logo-img" loading="lazy" alt="Logo">
               {{ else }}
-                {{ errorf "Failed loading avatar from %q" . }}
+                {{ $avatar := resources.Get (.src) }}
+                {{ if $avatar }}
+                  {{ $avatarResized := $avatar.Resize "300x" }}
+                  <img src="{{ $avatarResized.RelPermalink }}" class="site-logo-img" loading="lazy" alt="Logo">
+                {{ else }}
+                  {{ errorf "Failed loading logo from %q" . }}
+                {{ end }}
               {{ end }}
-            {{ end }}
             </a>
             {{ with $.Site.Params.sidebar.emoji }}
               <span class="emoji">{{ . }}</span>
             {{ end }}
-          </figure>
           {{ end }}
         {{ end }}
         <span class="site-name"><a href="{{ .Site.BaseURL | relLangURL }}">{{ .Site.Title }}</a></span>

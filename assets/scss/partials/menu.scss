@@ -158,8 +158,8 @@
     }
 
     @include respond(md) {
-        align-items: flex-end;
         display: flex;
+        align-items: flex-end;
         background-color: transparent;
         padding: 0;
         box-shadow: none;

@@ -241,7 +241,13 @@
     box-shadow: none;
 }
 
-#main-menu li,
-.topbar-menu ol.menu li {
-    width: auto;
+// Stack vertically on mobile
+@media (max-width: 767px) {
+    #main-menu,
+    .topbar-menu ol.menu {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+        width: 100%;
+    }
 }

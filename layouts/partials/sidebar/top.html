@@ -54,28 +54,6 @@
                 </ol>
             {{- end -}}
         </nav>
-        <!-- Language Switcher -->
-        {{ if (compare.Gt .Site.Home.AllTranslations.Len 1) }}
-            {{ with .Site.Home.AllTranslations }}
-                <div id="i18n-switch">
-                    {{ partial "helper/icon" "language" }}
-                    <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
-                        {{ $currentLanguageCode := $.Language.Lang }}
-                        {{ range . }}
-                            <option value="{{ .Permalink }}" {{ if eq .Language.Lang $currentLanguageCode }}selected{{ end }}>{{ .Language.LanguageName }}</option>
-                        {{ end }}
-                    </select>
-                </div>
-            {{ end }}
-        {{ end }}
-        <!-- Dark Mode Toggle -->
-        {{ if (default false .Site.Params.colorScheme.toggle) }}
-            <button id="dark-mode-toggle" aria-label="Toggle dark mode">
-                {{ partial "helper/icon" "toggle-left" }}
-                {{ partial "helper/icon" "toggle-right" }}
-                <span>{{ T "darkMode" }}</span>
-            </button>
-        {{ end }}
     </div>
     <nav class="topbar-menu">
         <ol class="menu" id="main-menu">
@@ -94,4 +72,32 @@
             {{ end }}
         </ol>
     </nav>
+    <div class="topbar-toggles">
+        <!-- Language Switcher and Dark Mode Toggle here -->
+        <!-- Language Switcher (inside menu for mobile) -->
+        {{ if (compare.Gt .Site.Home.AllTranslations.Len 1) }}
+            {{ with .Site.Home.AllTranslations }}
+                <div id="i18n-switch">
+                    {{ partial "helper/icon" "language" }}
+                    <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        {{ $currentLanguageCode := $.Language.Lang }}
+                        {{ range . }}
+                            <option value="{{ .Permalink }}" {{ if eq .Language.Lang $currentLanguageCode }}selected{{ end }}>{{ .Language.LanguageName }}</option>
+                        {{ end }}
+                    </select>
+                </div>
+            {{ end }}
+        {{ end }}
+
+        <!-- Dark Mode Toggle (inside menu for mobile) -->
+        {{ if (default false .Site.Params.colorScheme.toggle) }}
+            <div>
+                <button id="dark-mode-toggle" aria-label="Toggle dark mode">
+                    {{ partial "helper/icon" "toggle-left" }}
+                    {{ partial "helper/icon" "toggle-right" }}
+                    <span>{{ T "darkMode" }}</span>
+                </button>
+            </div>
+        {{ end }}
+    </div>
 </header>

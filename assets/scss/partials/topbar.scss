@@ -16,85 +16,94 @@
     .topbar-inner {
         display: flex;
         flex-direction: row;
-        align-items: center; // This centers all children vertically
-        gap: 1.5rem;
+        align-items: center;
+        justify-content: space-between;
         min-height: 60px;
         width: 100%;
+        gap: 2rem;
 
         .flex-spacer {
             flex: 1 1 auto;
         }
     }
 
-    .site-meta {
+    .topbar-left {
         display: flex;
-        flex-direction: row;
         align-items: center;
         gap: 1rem;
 
-        .site-avatar {
-            width: 40px;
-            height: 40px;
-            margin: 0;
-            .site-logo {
-                width: 100%;
-                height: 100%;
-                border-radius: 50%;
-                box-shadow: var(--shadow-l1);
+        .site-meta {
+            display: flex;
+            flex-direction: row; // Change to row
+            align-items: center;
+            gap: 0.5rem;
+
+            .site-avatar {
+                width: 40px;
+                height: 40px;
+                margin: 0;
+                .site-logo {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    box-shadow: var(--shadow-l1);
+                }
+            }
+            .emoji {
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                line-height: 20px;
+                border-radius: 100%;
+                bottom: 0;
+                right: 0;
+                text-align: center;
+                font-size: 15px;
+                background-color: var(--card-background);
+                box-shadow: var(--shadow-l2);
+            }
+            .site-name {
+                font-weight: bold;
+                font-size: 1.3rem;
+                color: var(--accent-color);
+            }
+            .site-description {
+                font-size: 1rem;
+                color: var(--card-text-color-secondary);
             }
         }
-        .emoji {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            line-height: 20px;
-            border-radius: 100%;
-            bottom: 0;
-            right: 0;
-            text-align: center;
-            font-size: 15px;
-            background-color: var(--card-background);
-            box-shadow: var(--shadow-l2);
-        }
-        .site-name {
-            font-weight: bold;
-            font-size: 1.3rem;
-            color: var(--accent-color);
-        }
-        .site-description {
-            font-size: 1rem;
-            color: var(--card-text-color-secondary);
-        }
     }
 
-    .topbar-menu {
-        flex: 1;
-        display: flex;
-        justify-content: flex-start;
-        ol.menu {
-            display: flex;
-            flex-direction: row;
-            gap: 1rem;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        li.current > a {
-            font-weight: bold;
-            color: var(--accent-color);
-        }
-    }
-
-    .topbar-social {
+    .topbar-right {
         display: flex;
         align-items: center;
-        ol.menu-social {
+        gap: 1.5rem;
+
+        .topbar-social {
+            margin-right: 0.5rem;
+        }
+
+        .topbar-menu {
+            ol.menu {
+                display: flex;
+                flex-direction: row;
+                gap: 1rem;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            li.current > a {
+                font-weight: bold;
+                color: var(--accent-color);
+            }
+        }
+
+        .topbar-toggles {
             display: flex;
-            flex-direction: row;
-            gap: 0.5rem;
-            list-style: none;
-            margin: 0;
-            padding: 0;
+            gap: 1rem;
+            @media (max-width: 767px) {
+                display: none;
+            }
         }
     }
 
@@ -129,14 +138,6 @@
         cursor: pointer;
 
         .icon-tabler-toggle-right {
-            display: none;
-        }
-    }
-
-    .topbar-toggles {
-        display: flex;
-        gap: 1rem;
-        @media (max-width: 767px) {
             display: none;
         }
     }
